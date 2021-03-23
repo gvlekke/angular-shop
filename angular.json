@@ -1,7 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "ebbb6682-064d-4eea-9a65-a2fa35acea0b"
+    "analytics": "ebbb6682-064d-4eea-9a65-a2fa35acea0b",
+    "defaultCollection": "@ngneat/spectator"
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -9,6 +10,9 @@
     "divotion": {
       "projectType": "application",
       "schematics": {
+        "@ngneat/spectator:spectator-component": {
+          "style": "sass"
+        },
         "@schematics/angular:component": {
           "style": "sass"
         },
