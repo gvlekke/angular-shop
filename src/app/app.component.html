@@ -1,7 +1,23 @@
-<mat-toolbar color="primary">
-  <img src="/assets/divotion-logo.svg" class="logo" />
-</mat-toolbar>
-<span class="cdk-visually-hidden">
-  Example with a home icon with overlaid badge showing the number 15
-</span>
-<router-outlet></router-outlet>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="over" autoFocus="false" position="end">
+    <app-wishlist></app-wishlist>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <img src="/assets/divotion-logo.svg" class="logo" />
+      <button
+        mat-icon-button
+        class="example-icon favorite-icon"
+        aria-label="Toggle the whislist"
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon [matBadge]="whislistTotal$ | async" matBadgeColor="warn"
+          >favorite</mat-icon
+        >
+      </button>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

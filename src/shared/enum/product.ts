@@ -7,5 +7,5 @@ export interface Product {
   name: string;
   description: string;
   price: number;
-  inWhislist?: boolean;
+  amountInWishlist?: number;
 }

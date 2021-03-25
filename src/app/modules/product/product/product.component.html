@@ -1,0 +1,51 @@
+<mat-card>
+  <mat-card-header>
+    <div
+      *ngIf="mode != 'small'"
+      mat-card-avatar
+      class="header-image"
+      [style.background-image]="'url(' + innerProduct.imgUrl + ')'"
+    ></div>
+    <mat-card-title>{{ innerProduct.name }}</mat-card-title>
+    <mat-card-subtitle>{{ innerProduct.category }}</mat-card-subtitle>
+  </mat-card-header>
+  <img
+    mat-card-image
+    [src]="innerProduct.imgUrl"
+    class="product-image"
+    [ngClass]="{ small: 'small' }"
+    [alt]="innerProduct.name"
+  />
+  <mat-card-content *ngIf="mode !== 'small'">
+    <p>
+      {{ innerProduct.description }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      mat-icon-button
+      aria-label="remove a product from whislist"
+      (click)="removeProductFromWhislist(innerProduct)"
+    >
+      <mat-icon color="primary">remove</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      aria-label="Example icon-button with heart icon"
+      (click)="addProductToWhislist(innerProduct)"
+    >
+      <mat-icon
+        [color]="colorWishListIcon"
+        [matBadge]="innerProduct.amountInWishlist"
+        >favorite</mat-icon
+      >
+    </button>
+    <button
+      mat-icon-button
+      aria-label="add a product to the whishlist"
+      (click)="addProductToWhislist(innerProduct)"
+    >
+      <mat-icon color="primary">add</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

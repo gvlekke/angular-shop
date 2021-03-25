@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { WishlistState } from 'src/app/state/wishlist/wishlist.state';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'divotion';
+
+  @Select(WishlistState.amountOfProducts) whislistTotal$!: Observable<number>;
 }
